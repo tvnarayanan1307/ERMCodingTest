@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSVProcessorInterface\ICSVProcessor.cs" />
-    <Compile Include="CSVProcessorLib\CSVProcessor.cs" />
     <Compile Include="CSVProcessorLib\LPCSVProcessor.cs" />
     <Compile Include="CSVProcessorLib\TOUCSVProcessor.cs" />
     <Compile Include="Program.cs" />
