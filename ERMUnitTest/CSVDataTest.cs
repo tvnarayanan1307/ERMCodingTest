@@ -9,6 +9,9 @@ namespace ERMUnitTest
     [TestClass]
     public class CSVDataTest
     {
+        /// <summary>
+        /// Test method to test LP CSV Data
+        /// </summary>
         [TestMethod]
         public void LPCSVDataTest()
         {
@@ -16,6 +19,9 @@ namespace ERMUnitTest
             lpCSVDataProcessor.ProcessCSVFile(@"D:\CSVFiles\LP_214612653_20150907T220027915.csv");
         }
 
+        /// <summary>
+        /// Test method to test TOU CSV Data
+        /// </summary>
         [TestMethod]
         public void TOUCSVDataTest()
         {

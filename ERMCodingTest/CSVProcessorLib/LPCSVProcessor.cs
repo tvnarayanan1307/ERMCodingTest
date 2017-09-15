@@ -13,14 +13,27 @@ namespace ERMCodingTest.CSVProcessorLib
     public class LPCSVProcessor : ICSVProcessor
     {
         public string csvDirectoryPath = "";
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public LPCSVProcessor()
         {
 
         }
+
+        /// <summary>
+        /// Parameterized constructor by passing the CSV Directory path
+        /// </summary>
+        /// <param name="csvDirectoryPath"></param>
         public LPCSVProcessor(string csvDirectoryPath)
         {
             this.csvDirectoryPath = csvDirectoryPath;
         }
+
+        /// <summary>
+        /// Method to get the LP CSV Files implemented from the Interface ICSVProcessor
+        /// </summary>
         public void GetCSVFiles()
         {
             DirectoryInfo diCSVFiles = new DirectoryInfo(csvDirectoryPath);
@@ -34,13 +47,25 @@ namespace ERMCodingTest.CSVProcessorLib
             }
         }
 
+        /// <summary>
+        /// Method to process each LP CSV Files implemented from the Interface ICSVProcessor
+        /// </summary>
+        /// <param name="lpFileName"></param>
         public void ProcessCSVFile(string lpFileName)
         {
-
+            //Code to get the Data Table by invoking the static method
+            //GetDataTableFromCSV of the CSVHelper class
             DataTable LPCSVData = CSVHelper.GetDataTableFromCSV(lpFileName);
+
+            //Invoke ProcessCSVData by passing filename and the datatable
             ProcessCSVData(lpFileName, LPCSVData);
         }
 
+        /// <summary>
+        /// Method implemented from ICSVProcessor interface by passing the CSV Filename and DataTable
+        /// </summary>
+        /// <param name="lpFileName"></param>
+        /// <param name="dtLPCSVData"></param>
         public void ProcessCSVData(string lpFileName, DataTable dtLPCSVData)
         {
             int totalRowCount = dtLPCSVData.Rows.Count;

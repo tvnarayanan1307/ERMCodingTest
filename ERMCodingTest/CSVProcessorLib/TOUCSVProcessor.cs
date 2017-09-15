@@ -14,16 +14,27 @@ namespace ERMCodingTest.CSVProcessorLib
     {
         private string csvDirectoryPath = string.Empty;
 
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public TOUCSVProcessor()
         {
 
         }
 
+        /// <summary>
+        /// Parameterized constructor by passing the CSV Directory path
+        /// </summary>
+        /// <param name="csvDirectoryPath"></param>
         public TOUCSVProcessor(string csvDirectoryPath)
         {
             this.csvDirectoryPath = csvDirectoryPath;
         }
 
+        /// <summary>
+        ///  Method to get the TOU CSV Files implemented from the Interface ICSVProcessor
+        /// </summary>
         public void GetCSVFiles()
         {
             DirectoryInfo diCSVFiles = new DirectoryInfo(csvDirectoryPath);
@@ -35,12 +46,25 @@ namespace ERMCodingTest.CSVProcessorLib
             }
         }
 
+        /// <summary>
+        /// Method to process each LP CSV Files implemented from the Interface ICSVProcessor
+        /// </summary>
+        /// <param name="touFileName"></param>
         public void ProcessCSVFile(string touFileName)
         {
+            //Code to get the Data Table by invoking the static method
+            //GetDataTableFromCSV of the CSVHelper class
             DataTable TOUCSVData = CSVHelper.GetDataTableFromCSV(touFileName);
+
+            //Invoke ProcessCSVData by passing filename and the datatable
             ProcessCSVData(touFileName, TOUCSVData);
         }
-        
+
+        /// <summary>
+        /// Method implemented from ICSVProcessor interface by passing the CSV Filename and DataTable
+        /// </summary>
+        /// <param name="touFileName"></param>
+        /// <param name="dtTOUCSVData"></param>
         public void ProcessCSVData(string touFileName, DataTable dtTOUCSVData)
         {
             int totalRowCount = dtTOUCSVData.Rows.Count;
